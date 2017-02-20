@@ -1,0 +1,43 @@
+﻿/*This is my light themed stylesheet.*/
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+body
+{
+    background-color: ivory;
+    font-family: 'Slabo 27px', serif;
+}
+
+.Profile_Container
+{
+    width: 100%;
+    background-image: url('./source/images/Prof_Back_L2.jpg');
+}
+
+.Profile_Block
+{
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.Profile_Pic
+{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.Profile_Name
+{
+    text-align: center;
+    color: #569cd6;
+}
+
+
+/*
+    #9cdcfe
+    #1e1e1e
+    ivory
+    #d2691e
+*/
