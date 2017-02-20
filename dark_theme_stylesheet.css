@@ -16,17 +16,34 @@ body
 
 .Profile_Block
 {
-    margin: 0 auto;
-    max-width: 400px;
+    width: 400px;
+    max-height: 200px;
+    margin: 1cm;
+    box-sizing:border-box;
+    display:inline-block;
+    /*max-width: 200px;*/
+}
+
+.Profile_Pic_Block
+{
+    width: 200px;
+    float: left;
 }
 
 .Profile_Pic
 {
     height: 200px;
     width: 200px;
+    /*TODO: I need to find out what these do*/
     border-radius: 50%;
     display: block;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
+}
+
+.Profile_Name_Block
+{
+    width: 200px;
+    float: left;
 }
 
 .Profile_Name
