@@ -1,52 +1,63 @@
 ﻿/*This is my dark themed stylesheet.*/
 @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 
-body
+/*This is the default style for my webpage.*/
+*
 {
-    background-color: #1e1e1e;
     font-family: 'Slabo 27px', serif;
     color: #9cdcfe
 }
 
-.Profile_Container
+/*Defaults for the body.*/
+body
+{
+    background-color: #1e1e1e;
+}
+
+/*This is the profile container that is basically a header of my website.*/
+#Profile_Container
 {
     width: 100%;
+    margin-top: 0px;
     background-image: url('./source/images/Prof_Back_D.jpg');
 }
 
-.Profile_Block
+/*This holds my picture and name and title.*/
+#Profile_Block
 {
     width: 400px;
-    max-height: 200px;
-    margin: 1cm;
-    box-sizing:border-box;
-    display:inline-block;
-    /*max-width: 200px;*/
+    height: 200px;
+    margin: 35px;
+    /*box-sizing:border-box;*/
+    display: inline-block;
 }
 
-.Profile_Pic_Block
+/*This is for the a href on my pic.*/
+#Profile_Pic_Block
 {
     width: 200px;
     float: left;
+    border-radius: 100%;
 }
 
-.Profile_Pic
+/*My profile picture.*/
+#Profile_Pic
 {
     height: 200px;
     width: 200px;
-    /*TODO: I need to find out what these do*/
-    border-radius: 50%;
-    display: block;
-    /*margin: 0 auto;*/
+    border-radius: 100%;
+    display: inline-block;
 }
 
-.Profile_Name_Block
+/*To move my name and title as a block.*/
+#Profile_Name_Block
 {
     width: 200px;
-    float: left;
+    float: right;
 }
 
-.Profile_Name
+/*How each element of name and title will look.*/
+.Profile_Info
 {
     text-align: center;
     color: #569cd6;
