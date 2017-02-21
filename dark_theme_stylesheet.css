@@ -18,6 +18,7 @@ body
 #Profile_Container
 {
     width: 100%;
+    min-width: 700px;
     margin-top: 0px;
     background-image: url('./source/images/Prof_Back_D.jpg');
 }
@@ -28,7 +29,6 @@ body
     width: 400px;
     height: 200px;
     margin: 35px;
-    /*box-sizing:border-box;*/
     display: inline-block;
 }
 
@@ -61,4 +61,29 @@ body
 {
     text-align: center;
     color: #569cd6;
+}
+
+/*This is for my linkable icons.*/
+#Icon_Block
+{
+    width: 200px;
+    float: right;
+}
+
+/*This is to position my icons.*/
+.Icons
+{
+    display: inline-block;
+    border-radius: 100%;
+    width: 45px;
+    float: right;
+    margin: 10px;
+}
+
+/*These are the settings for my icons.*/
+.Icon
+{
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
 }
