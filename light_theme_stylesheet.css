@@ -1,43 +1,106 @@
-﻿/*This is my light themed stylesheet.*/
+﻿/*This is my dark themed stylesheet.*/
 @import url('https://fonts.googleapis.com/css?family=Slabo+27px');
 
+/*Defaults for the body.*/
 body
 {
-    background-color: ivory;
+    background-color: lightcyan;
     font-family: 'Slabo 27px', serif;
 }
 
-.Profile_Container
+/*This is the profile container that is basically a header of my website.*/
+#Profile_Container
 {
-    width: 100%;
+    position: absolute;
+    width: 100.1%;
+    min-width: 700px;
+    margin-top: -10px;
+    margin-left: -10px;
     background-image: url('./source/images/Prof_Back_L2.jpg');
 }
 
-.Profile_Block
+/*This holds my picture and name and title.*/
+#Profile_Block
 {
-    margin: 0 auto;
-    max-width: 400px;
+    width: 410px;
+    height: 200px;
+    margin: 35px 0px 30px 35px;
+    display: inline-block;
 }
 
-.Profile_Pic
+/*This is for the a href on my pic.*/
+#Profile_Pic_Block
+{
+    width: 200px;
+    height: 200px;
+    float: left;
+    border-radius: 100%;
+}
+
+/*My profile picture.*/
+#Profile_Pic
 {
     height: 200px;
     width: 200px;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto;
+    border-radius: 100%;
 }
 
-.Profile_Name
+/*To move my name and title as a block.*/
+#Profile_Name_Block
+{
+    width: 200px;
+    height: 200px;
+    float: right;
+}
+
+/*How each element of name and title will look.*/
+.Profile_Info
 {
     text-align: center;
-    color: #569cd6;
+    color: #001838;
 }
 
+/*This is for my linkable icons.*/
+#Icon_Block
+{
+    width: 175px;
+    height: 55px;
+    float: right;
+    margin: 10px 10px 0px 0px;
+}
 
-/*
-    #9cdcfe
-    #1e1e1e
-    ivory
-    #d2691e
-*/
+/*This is to position my icons.*/
+.Icons
+{
+    display: inline-block;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    float: right;
+    margin: 10px;
+}
+
+/*These are the settings for my icons.*/
+.Icon
+{
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+}
+
+#Content_Container
+{
+    position: absolute;
+    width: 100%;
+    margin: 275px -10px 0px -10px;
+}
+
+.Headers
+{
+    margin-left: 50px;
+}
+
+.Content
+{
+    margin-left: 50px;
+}
