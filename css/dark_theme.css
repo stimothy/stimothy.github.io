@@ -1,0 +1,199 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Slabo+27px");
+
+/*Setting the defaults for the html page.*/
+body 
+{
+    background-color: #1e1e1e;
+    font-family: "Slabo 27px", serif;
+
+    /*This is so the background images go right to the edge of the page.*/
+    margin: 0px;
+    padding: 0px;
+}
+
+/*This is the profile container that is basically a header of my mainpage.*/
+#Profile_Container 
+{
+    background-image: url("../source/images/profile_background_d.jpg");
+    position: absolute;
+    width: 100%;
+    height: 300px;
+}
+
+/*This controls how the profile pic works.*/
+#Profile_Pic 
+{
+    position: absolute;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
+    top: 30px;
+    left: 50px;
+    border-radius: 100%;
+}
+
+/*This is needed to control the picture and change it to a circle.*/
+#Profile_Pic img
+{
+    border-radius: 100%;
+}
+
+/*This controls my name and title.*/
+#Profile_Info 
+{
+    position: absolute;
+    display: block;
+    min-width: 250px;
+    top: 30px;
+    left: 250px;
+    text-align: center;
+    color: #569cd6;
+    letter-spacing: .075em;
+}
+
+/*This is a container for the icons/logos.*/
+#Logos_Container
+{
+    float: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*This decides how to treat the actual logos and their links.*/
+.Logos
+{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin: 5px 20px 0px 0px;
+    padding: 0px;
+    border-radius: 100%;
+}
+
+/*This controls the navigation bar.*/
+#Navigation_Bar 
+{
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 250px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*This decides how to treat the actual logos and their links.*/
+.Navigation_Bar_Elements 
+{
+    display: inline-block;
+    height: 50px;
+    margin: -10px 0px 0px 50px;
+}
+
+    .Navigation_Bar_Elements a 
+    {
+        text-decoration: none;
+        color: #569cd6;
+    }
+/*
+    /*This is my dark themed stylesheet.
+/*@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+@font-face {
+    font-family: "slabo 27px";
+    src: url("https://fonts.googleapis.com/css?family=Slabo+27px")
+}
+/*Setting the defaults for the html page.
+body {
+    background-color: #1e1e1e;
+    font-family: 'Slabo 27px', serif;
+    color: #9cdcfe;
+}
+
+/*This is the profile container that is basically a header of my mainpage.
+#Profile_Container {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    margin: -10px 0px 0px -10px;
+    background-image: url("../source/images/profile_background_d.jpg");
+}
+
+/*This holds my picture and name and title.*
+#Profile_Block {
+    width: 200px;
+    height: 200px;
+    margin: 35px 0px 30px 35px;
+    display: inline-block;
+    border-radius: 100%;
+}
+
+/*This is for the a href on my pic.*/
+/*#Profile_Block
+{
+    width: 200px;
+    height: 200px;
+    float: left;
+    border-radius: 100%;
+}*/
+
+/*My profile picture.*
+Profile_Pic {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+}
+
+/*To move my name and title as a block.*
+#Profile_Name_Block {
+    width: 200px;
+    height: 200px;
+    float: right;
+}
+
+/*How each element of name and title will look.*
+.Profile_Info {
+    text-align: center;
+    color: #569cd6;
+}
+
+/*This is for my linkable icons.*
+#Icon_Block {
+    width: 175px;
+    height: 55px;
+    float: right;
+    margin: 10px 10px 0px 0px;
+}
+
+/*This is to position my icons.*
+.Icons {
+    display: inline-block;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    float: right;
+    margin: 10px;
+}
+
+/*These are the settings for my icons.*
+.Icon {
+    height: 35px;
+    width: 35px;
+    border-radius: 100%;
+}
+
+#Content_Container {
+    position: absolute;
+    width: 100%;
+    margin: 275px -10px 0px -10px;
+}
+
+.Headers {
+    margin-left: 50px;
+}
+
+.Content {
+    margin-left: 50px;
+}
+
+*/
