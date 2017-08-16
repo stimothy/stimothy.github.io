@@ -70,31 +70,6 @@ body
     padding: 0px;
     border-radius: 100%;
 }
-
-/*This controls the navigation bar.*/
-#Navigation_Bar 
-{
-    position: absolute;
-    width: 100%;
-    height: 50px;
-    top: 250px;
-    margin: 0px;
-    padding: 0px;
-}
-
-/*This decides how to treat the actual logos and their links.*/
-.Navigation_Bar_Elements 
-{
-    display: inline-block;
-    height: 50px;
-    margin: -10px 0px 0px 50px;
-}
-
-    .Navigation_Bar_Elements a 
-    {
-        text-decoration: none;
-        color: #569cd6;
-    }
 /*
     /*This is my dark themed stylesheet.
 /*@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
