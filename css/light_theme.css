@@ -1,7 +1,8 @@
 ﻿@import url("https://fonts.googleapis.com/css?family=Slabo+27px");
 
 /*Setting the defaults for the html page.*/
-body {
+body 
+{
     background-color: lightcyan;
     font-family: "Slabo 27px", serif;
     /*This is so the background images go right to the edge of the page.*/
@@ -10,7 +11,8 @@ body {
 }
 
 /*This is the profile container that is basically a header of my mainpage.*/
-#Profile_Container {
+#Profile_Container 
+{
     background-image: url("../source/images/profile_background_l.jpg");
     position: absolute;
     width: 100%;
@@ -18,7 +20,8 @@ body {
 }
 
 /*This controls how the profile pic works.*/
-#Profile_Pic {
+#Profile_Pic 
+{
     position: absolute;
     display: inline-block;
     width: 200px;
@@ -30,12 +33,14 @@ body {
 }
 
     /*This is needed to control the picture and change it to a circle.*/
-    #Profile_Pic img {
+    #Profile_Pic img 
+    {
         border-radius: 100%;
     }
 
 /*This controls my name and title.*/
-#Profile_Info {
+#Profile_Info 
+{
     position: absolute;
     display: block;
     min-width: 250px;
@@ -47,14 +52,16 @@ body {
 }
 
 /*This is a container for the icons/logos.*/
-#Logos_Container {
+#Logos_Container 
+{
     float: right;
     margin: 0px;
     padding: 0px;
 }
 
 /*This decides how to treat the actual logos and their links.*/
-.Logos {
+.Logos 
+{
     display: inline-block;
     width: 35px;
     height: 35px;
@@ -64,7 +71,8 @@ body {
 }
 
 /*This is info about my navigation bar.*/
-#Navigation_Bar {
+#Navigation_Bar 
+{
     position: absolute;
     background-color: rgba(0,139,139,.65);
     top: 250px;
@@ -72,7 +80,8 @@ body {
     height: 50px;
 }
 
-    #Navigation_Bar a {
+    #Navigation_Bar a 
+    {
         display: inline-block;
         text-decoration: none;
         color: black;
@@ -84,23 +93,27 @@ body {
         margin-right: -3px;
     }
 
-        #Navigation_Bar a:hover {
+        #Navigation_Bar a:hover 
+        {
             color: #001838;
             background-color: lightcyan;
         }
 
 /*This is info abour the main content of the page.*/
-#Content_Container {
+#Content_Container 
+{
     position: absolute;
     top: 300px;
 }
 
-    #Content_Container h1 {
+    #Content_Container h1 
+    {
         color: #001838;
         padding: 25px 0px 0px 300px;
     }
 
-    #Content_Container p {
+    #Content_Container p 
+    {
         color: black;
         padding: 0px 250px 0px 250px;
     }
