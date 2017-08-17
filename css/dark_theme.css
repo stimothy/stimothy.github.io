@@ -71,6 +71,7 @@ body
     border-radius: 100%;
 }
 
+/*This is info about my navigation bar.*/
 #Navigation_Bar
 {
     position: absolute;
@@ -98,6 +99,7 @@ body
             background-color: #1e1e1e;
         }
 
+/*This is info abour the main content of the page.*/
 #Content_Container
 {
     position: absolute;
@@ -115,105 +117,3 @@ body
         color: #9cdcfe;
         padding: 0px 250px 0px 250px;
     }
-/*
-    /*This is my dark themed stylesheet.
-/*@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
-@font-face {
-    font-family: "slabo 27px";
-    src: url("https://fonts.googleapis.com/css?family=Slabo+27px")
-}
-/*Setting the defaults for the html page.
-body {
-    background-color: #1e1e1e;
-    font-family: 'Slabo 27px', serif;
-    color: #9cdcfe;
-}
-
-/*This is the profile container that is basically a header of my mainpage.
-#Profile_Container {
-    position: absolute;
-    width: 100%;
-    height: 300px;
-    margin: -10px 0px 0px -10px;
-    background-image: url("../source/images/profile_background_d.jpg");
-}
-
-/*This holds my picture and name and title.*
-#Profile_Block {
-    width: 200px;
-    height: 200px;
-    margin: 35px 0px 30px 35px;
-    display: inline-block;
-    border-radius: 100%;
-}
-
-/*This is for the a href on my pic.*/
-/*#Profile_Block
-{
-    width: 200px;
-    height: 200px;
-    float: left;
-    border-radius: 100%;
-}*/
-
-/*My profile picture.*
-Profile_Pic {
-    display: block;
-    width: 200px;
-    height: 200px;
-    border-radius: 100%;
-}
-
-/*To move my name and title as a block.*
-#Profile_Name_Block {
-    width: 200px;
-    height: 200px;
-    float: right;
-}
-
-/*How each element of name and title will look.*
-.Profile_Info {
-    text-align: center;
-    color: #569cd6;
-}
-
-/*This is for my linkable icons.*
-#Icon_Block {
-    width: 175px;
-    height: 55px;
-    float: right;
-    margin: 10px 10px 0px 0px;
-}
-
-/*This is to position my icons.*
-.Icons {
-    display: inline-block;
-    border-radius: 100%;
-    width: 35px;
-    height: 35px;
-    float: right;
-    margin: 10px;
-}
-
-/*These are the settings for my icons.*
-.Icon {
-    height: 35px;
-    width: 35px;
-    border-radius: 100%;
-}
-
-#Content_Container {
-    position: absolute;
-    width: 100%;
-    margin: 275px -10px 0px -10px;
-}
-
-.Headers {
-    margin-left: 50px;
-}
-
-.Content {
-    margin-left: 50px;
-}
-
-*/
