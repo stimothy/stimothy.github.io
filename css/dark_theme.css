@@ -18,6 +18,7 @@ body
     position: absolute;
     width: 100%;
     height: 300px;
+    min-width: 750px;
 }
 
 /*This controls how the profile pic works.*/
@@ -104,18 +105,22 @@ body
 {
     position: absolute;
     top: 300px;
+    width: 100%;
+    min-width: 750px;
 }
 
     #Content_Container h1 
     {
         color: #569cd6;
-        padding: 25px 0px 0px 300px;
+        /*padding: 25px 0px 0px 300px;*/
         font-size: 60px;
+        text-align: center;
     }
 
     #Content_Container p
     {
         color: #9cdcfe;
-        padding: 0px 250px 0px 250px;
+        padding: 0px 200px 0px 200px;
         font-size: 25px;
+        text-align: center;
     }
