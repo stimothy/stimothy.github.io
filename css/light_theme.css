@@ -1,106 +1,106 @@
-﻿/*This is my dark themed stylesheet.*/
-@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+﻿@import url("https://fonts.googleapis.com/css?family=Slabo+27px");
 
-/*Defaults for the body.*/
-body
-{
+/*Setting the defaults for the html page.*/
+body {
     background-color: lightcyan;
-    font-family: 'Slabo 27px', serif;
+    font-family: "Slabo 27px", serif;
+    /*This is so the background images go right to the edge of the page.*/
+    margin: 0px;
+    padding: 0px;
 }
 
-/*This is the profile container that is basically a header of my website.*/
-#Profile_Container
-{
-    position: absolute;
-    width: 100.1%;
-    min-width: 700px;
-    margin-top: -10px;
-    margin-left: -10px;
-    background-image: url('../source/images/Prof_Back_L2.jpg');
-}
-
-/*This holds my picture and name and title.*/
-#Profile_Block
-{
-    width: 410px;
-    height: 200px;
-    margin: 35px 0px 30px 35px;
-    display: inline-block;
-}
-
-/*This is for the a href on my pic.*/
-#Profile_Pic_Block
-{
-    width: 200px;
-    height: 200px;
-    float: left;
-    border-radius: 100%;
-}
-
-/*My profile picture.*/
-#Profile_Pic
-{
-    height: 200px;
-    width: 200px;
-    border-radius: 100%;
-}
-
-/*To move my name and title as a block.*/
-#Profile_Name_Block
-{
-    width: 200px;
-    height: 200px;
-    float: right;
-}
-
-/*How each element of name and title will look.*/
-.Profile_Info
-{
-    text-align: center;
-    color: #001838;
-}
-
-/*This is for my linkable icons.*/
-#Icon_Block
-{
-    width: 175px;
-    height: 55px;
-    float: right;
-    margin: 10px 10px 0px 0px;
-}
-
-/*This is to position my icons.*/
-.Icons
-{
-    display: inline-block;
-    border-radius: 100%;
-    width: 35px;
-    height: 35px;
-    float: right;
-    margin: 10px;
-}
-
-/*These are the settings for my icons.*/
-.Icon
-{
-    height: 35px;
-    width: 35px;
-    border-radius: 100%;
-}
-
-#Content_Container
-{
+/*This is the profile container that is basically a header of my mainpage.*/
+#Profile_Container {
+    background-image: url("../source/images/profile_background_l.jpg");
     position: absolute;
     width: 100%;
-    margin: 275px -10px 0px -10px;
+    height: 300px;
 }
 
-.Headers
-{
-    margin-left: 50px;
+/*This controls how the profile pic works.*/
+#Profile_Pic {
+    position: absolute;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    min-width: 200px;
+    top: 30px;
+    left: 50px;
+    border-radius: 100%;
 }
 
-.Content
-{
-    margin-left: 50px;
+    /*This is needed to control the picture and change it to a circle.*/
+    #Profile_Pic img {
+        border-radius: 100%;
+    }
+
+/*This controls my name and title.*/
+#Profile_Info {
+    position: absolute;
+    display: block;
+    min-width: 250px;
+    top: 30px;
+    left: 250px;
+    text-align: center;
+    color: #001838;
+    letter-spacing: .075em;
 }
+
+/*This is a container for the icons/logos.*/
+#Logos_Container {
+    float: right;
+    margin: 0px;
+    padding: 0px;
+}
+
+/*This decides how to treat the actual logos and their links.*/
+.Logos {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin: 5px 20px 0px 0px;
+    padding: 0px;
+    border-radius: 100%;
+}
+
+/*This is info about my navigation bar.*/
+#Navigation_Bar {
+    position: absolute;
+    background-color: rgba(30,30,30,.65);  /*Light cyan*/
+    top: 250px;
+    width: 100%;
+    height: 50px;
+}
+
+    #Navigation_Bar a {
+        display: inline-block;
+        text-decoration: none;
+        color: black;
+        width: 100px;
+        text-align: center;
+        line-height: 50px;
+        border-right: 1px solid black;
+        font-size: 18px;
+        margin-right: -3px;
+    }
+
+        #Navigation_Bar a:hover {
+            color: #001838;
+            background-color: lightcyan;
+        }
+
+/*This is info abour the main content of the page.*/
+#Content_Container {
+    position: absolute;
+    top: 300px;
+}
+
+    #Content_Container h2 {
+        color: #001838;
+        padding: 25px 0px 0px 300px;
+    }
+
+    #Content_Container p {
+        color: black;
+        padding: 0px 250px 0px 250px;
+    }
