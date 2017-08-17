@@ -70,6 +70,51 @@ body
     padding: 0px;
     border-radius: 100%;
 }
+
+#Navigation_Bar
+{
+    position: absolute;
+    background-color: rgba(30,30,30,.65);
+    top: 250px;
+    width: 100%;
+    height: 50px;
+}
+
+    #Navigation_Bar a {
+        display: inline-block;
+        text-decoration: none;
+        color: #9cdcfe;
+        width: 100px;
+        text-align: center;
+        line-height: 50px;
+        border-right: 1px solid #bbba7d;
+        font-size: 18px;
+        margin-right: -3px;
+    }
+
+        #Navigation_Bar a:hover 
+        {
+            color: #569cd6;
+            background-color: #1e1e1e;
+        }
+
+#Content_Container
+{
+    position: absolute;
+    top: 300px;
+}
+
+    #Content_Container h2 
+    {
+        color: #569cd6;
+        padding: 25px 0px 0px 300px;
+    }
+
+    #Content_Container p
+    {
+        color: #9cdcfe;
+        padding: 0px 250px 0px 250px;
+    }
 /*
     /*This is my dark themed stylesheet.
 /*@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
