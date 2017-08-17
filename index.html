@@ -3,78 +3,59 @@
     <head>
         <!--This is the title that is shown on the label.-->
         <title>Steven Timothy</title>
-        <script>
-            function getStylesheet() 
-            {
-                var currentTime = new Date().getHours();
-                if (0 <= currentTime&&currentTime < 10) 
-                {
-                    document.write('<link type="text/css" rel="stylesheet" href="./dark_theme_stylesheet.css">');
-                }
-                if (10 <= currentTime&&currentTime < 19) 
-                {
-                    document.write('<link type="text/css" rel="stylesheet" href="./light_theme_stylesheet.css">');
-                }
-                if (19 <= currentTime&&currentTime < 24) 
-                {
-                    document.write('<link type="text/css" rel="stylesheet" href="./dark_theme_stylesheet.css">');
-                }
-            }
-            getStylesheet();
-        </script>
-        <!--These are links to my css stylesheets.-->
-        <!--<link type="text/css" rel="stylesheet" href="./dark_theme_stylesheet.css">-->
-        <!--<link type="text/css" rel="stylesheet" href="./light_theme_stylesheet.css">-->
+
+        <!--This javascript file chooses which theme to use on the page.-->
+        <!--<script src="js/theme_changer.js" type="text/javascript"></script>-->
+
+        <!--In this section I have the links to each of the theme stylesheets so that I can work
+            on them when working on the page. Most of the time they will be commented out.-->
+        <link href="css/dark_theme.css" type="text/css" rel="stylesheet" />
+        <!--<link href="css/dark_theme.css" type="text/css" rel="stylesheet" />-->
     </head>
     <body>
-        <!--This is the profile div-->
+        <!--This div holds all the information for the profile header section.-->
         <div id="Profile_Container">
-            <!--This is my picture name and title block-->
-            <div id="Profile_Block">
-                <div id="Profile_Pic_Block">
-                    <a href="http://www.steventimothy.com/source/images/Prof_Pic.jpg">
-                        <img id="Profile_Pic" src="./source/images/Prof_Pic.jpg" />
-                    </a>
-                </div>
-                <div id="Profile_Name_Block">
-                    <h1 class="Profile_Info">Steven Timothy</h1>
-                    <h3 class="Profile_Info">Software Developer</h3>
-                </div>
+            <!--My profile picture.-->
+            <a id="Profile_Pic" href="http://www.steventimothy.com/source/images/Prof_Pic.jpg">
+                <img src="./source/images/profile_pic.jpg" />
+            </a>
+            <!--My name and title.-->
+            <div id="Profile_Info">
+                <h1>Steven Timothy</h1>
+                <h3>Software Developer</h3>
             </div>
-            <!--This is my Icon block.-->
-            <div id="Icon_Block">
-                <div class="Icons">
-                    <a href="https://github.com/steventimothy">
-                        <img class="Icon" src="./source/images/sprites/github_large_d.png" />
+            <!--The container for my logos/links-->
+            <ul id="Logos_Container">
+                <li class="Logos">
+                    <a class="Logos" href="https://github.com/steventimothy">
+                        <img src="./source/images/sprites/github_d.png" />
                     </a>
-                </div>
-                <div class="Icons">
-                    <a href="https://www.linkedin.com/in/steven-timothy-b11650a8">
-                        <img class="Icon" src="./source/images/sprites/linkedin.png" />
+                </li>
+                <li class="Logos">
+                    <a class="Logos" href="https://www.linkedin.com/in/steven-timothy-b11650a8">
+                        <img src="./source/images/sprites/linkedin_d.png" />
                     </a>
-                </div>
+                </li>
+            </ul>
+            <!--This div controls the color of the nav bar-->
+            <div id="Navigation_Bar">
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="#">About</a>
+                </nav>
             </div>
         </div>
-
+        <!--Where the main content of the page goes-->
         <div id="Content_Container">
-            <div class="Headers">
-                <h3>About Me</h3>
-            </div>
-            <div class="Content">
-                <p>My name is Steven Timothy. I am a Senior studying Computer Science at Utah State University. I enjoy
+            <h2>About Me</h2>
+            <p>
+                My name is Steven Timothy. I am a Senior studying Computer Science at Utah State University. I enjoy
                 programming and the power to create whatever you want. With that mind set comes many problems. One reason
                 this field of study interests me is because I love to problem solve, which any computer scientist knows
                 is a great big part of their job. Although debugging can be frustrating, the feeling of accomplishment afterwards
                 is awesome. My emphasis is software development, but I am also toying with the idea of computer security. I have
-                yet to be able to take the computer security class, but I hope to next semester.</p>
-            </div>
-
-            <div class="Headers">
-
-            </div>
-            <div class="Content">
-
-            </div>
+                yet to be able to take the computer security class, but I hope to next semester.
+            </p>
         </div>
     </body>
 </html>

@@ -16,7 +16,7 @@ body
     min-width: 700px;
     margin-top: -10px;
     margin-left: -10px;
-    background-image: url('./source/images/Prof_Back_L2.jpg');
+    background-image: url('../source/images/Prof_Back_L2.jpg');
 }
 
 /*This holds my picture and name and title.*/
