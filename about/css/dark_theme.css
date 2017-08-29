@@ -1,0 +1,38 @@
+﻿body 
+{
+    background-image: url("../source/images/background_image.jpg");
+    background-size: cover; /* <------ */
+    background-repeat: no-repeat;
+    background-position: top center; /* optional, center the image */
+}
+
+#overlay 
+{
+}
+
+/*This is info about my navigation bar.*/
+#Navigation_Bar {
+    position: absolute;
+    background-color: rgba(30,30,30,.65);
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    margin: 0px -10px 0px -10px;
+}
+
+    #Navigation_Bar a {
+        display: inline-block;
+        text-decoration: none;
+        color: #9cdcfe;
+        width: 100px;
+        text-align: center;
+        line-height: 50px;
+        border-right: 1px solid #bbba7d;
+        font-size: 18px;
+        margin-right: -3px;
+    }
+
+        #Navigation_Bar a:hover {
+            color: #569cd6;
+            background-color: #1e1e1e;
+        }
