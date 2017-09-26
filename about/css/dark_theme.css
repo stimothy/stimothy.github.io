@@ -1,0 +1,71 @@
+﻿@import url("https://fonts.googleapis.com/css?family=Slabo+27px");
+
+body {
+    background-color: #1e1e1e;
+    font-family: "Slabo 27px", serif;
+    /*background-size: cover; /* <------ 
+    background-repeat: no-repeat;
+    background-position: top center; /* optional, center the image */
+}
+
+/*/#overlay 
+//{
+}*/
+#Banner {
+    background-image: url("../source/images/background_image.jpg");
+    background-position: 50% 24%;
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    top: 0px;
+    margin: 0px 10px 0px -10px;
+}
+
+/*This is info about my navigation bar.*/
+#Navigation_Bar {
+    position: absolute;
+    background-color: rgba(30,30,30,.65);
+    top: 0px;
+    width: 100%;
+    height: 50px;
+    /*margin: 0px -10px 0px -10px;*/
+}
+
+    #Navigation_Bar a {
+        display: inline-block;
+        text-decoration: none;
+        color: #9cdcfe;
+        width: 100px;
+        text-align: center;
+        line-height: 50px;
+        border-right: 1px solid #bbba7d;
+        font-size: 18px;
+        margin-right: -3px;
+    }
+
+        #Navigation_Bar a:hover {
+            color: #569cd6;
+            background-color: #1e1e1e;
+        }
+
+/*This is info abour the main content of the page.*/
+#Content_Container {
+    position: absolute;
+    top: 300px;
+    width: 100%;
+    min-width: 750px;
+}
+
+    #Content_Container h1 {
+        color: #569cd6;
+        /*padding: 25px 0px 0px 300px;*/
+        font-size: 60px;
+        text-align: center;
+    }
+
+    #Content_Container p {
+        color: #9cdcfe;
+        padding: 0px 200px 0px 200px;
+        font-size: 25px;
+        text-align: left;
+    }
