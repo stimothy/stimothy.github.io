@@ -29,4 +29,16 @@ const dateStr = date.toLocaleDateString('en-US', { year: 'numeric', month: 'shor
   .prose :global(h2) { margin-top: 2.2rem; }
   .prose :global(p) { margin: 1rem 0; }
   .prose :global(ul), .prose :global(ol) { padding-left: 1.4rem; }
+  .prose :global(blockquote) {
+    margin: 1.6rem 0;
+    padding: 0.9rem 1.2rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 8px;
+    color: var(--muted);
+  }
+  .prose :global(blockquote p) { margin: 0.4rem 0; }
+  .prose :global(blockquote p:first-child) { margin-top: 0; }
+  .prose :global(blockquote p:last-child) { margin-bottom: 0; }
 </style>
