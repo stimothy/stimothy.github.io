@@ -54,7 +54,7 @@ function pipeline(ctx) &#123;
       <p class="lead muted">A few projects that show how I think about systems.</p>
       <div class="grid">
         {featured.map((p) => (
-          <ProjectCard href={`/projects/${p.id}`} title={p.data.title} summary={p.data.summary} tags={p.data.tags} />
+          <ProjectCard href={`/projects/${p.id}`} title={p.data.title} summary={p.data.summary} tags={p.data.tags} image={p.data.image} imageAlt={p.data.imageAlt} />
         ))}
       </div>
     </section>
@@ -65,7 +65,7 @@ function pipeline(ctx) &#123;
       <div>
         <span class="section-rule"></span>
         <h2>About</h2>
-        <p class="muted">Lead software engineer focused on software architecture — how systems are shaped, why they're built the way they are, and how to keep them healthy as they grow.</p>
+        <p class="muted">Lead software engineer working to grow into software architecture — what it takes to be an architect, and what an architect should be thinking about when designing a system.</p>
         <p><a class="accent" href="/about">More about me →</a></p>
       </div>
       {latestPosts.length > 0 && (
