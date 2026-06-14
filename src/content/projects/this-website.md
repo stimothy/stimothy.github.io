@@ -6,26 +6,33 @@ tags: [astro, typescript, github-pages]
 featured: true
 repo: https://github.com/stimothy/stimothy.github.io
 link: https://www.steventimothy.com
+image: /banners/astro.svg
+imageAlt: Astro logo
 ---
 
 ## The problem
 
-My old personal site never became something I was proud to share. I wanted a place
-that does two jobs at once: makes a strong impression on anyone considering hiring
-me, and is genuinely useful to anyone trying to learn something.
+I didn't have a place that showed the work I've done — or where I stand on what makes
+code clean and well-architected. The times I tried, hand-building a polished portfolio
+from scratch cost more time than it was worth, and the moment I wanted to add something
+new, getting it to look right was enough friction that the site just fell out of date.
 
 ## What I built
 
-A static site generated with [Astro](https://astro.build). Writing and projects are
-plain Markdown files validated by content-collection schemas, so publishing is just
-adding a file. Theming is driven by CSS custom properties keyed off a `data-theme`
-attribute, set before first paint to avoid a flash and persisted in `localStorage`
-with an OS-preference fallback.
+A static site built with [Astro](https://astro.build), designed to stay current with
+almost no effort. Writing and projects are plain Markdown files validated by
+content-collection schemas, so publishing is just adding a file — new content inherits
+the site's styling automatically, which is what keeps it from going stale. A warm
+light/dark theme, applied before first paint and remembered across visits, rounds out
+the reading experience.
 
 ## Architecture notes
 
 - **Content as data:** `getCollection` queries typed Markdown; drafts are filtered
   at build time.
+- **Theming:** light/dark via CSS custom properties keyed off a `data-theme` attribute —
+  resolved before first paint and persisted to `localStorage`, with an OS-preference
+  fallback on first visit.
 - **No backend:** everything is static and served by GitHub Pages behind a custom
   domain.
 - **CI/CD:** GitHub Actions builds and deploys on every push to `master`.
