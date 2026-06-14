@@ -1,7 +1,54 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const latest = (await getCollection('writing', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 1)[0];
+
+const featured = (await getCollection('projects', ({ data }) => !data.draft && data.featured))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 2);
 ---
-<BaseLayout title="Steven Timothy">
-  <h1>Home placeholder</h1>
-  <p>Theme toggle and layout smoke test.</p>
+<BaseLayout title="Steven Timothy — Lead Software Engineer">
+  <section class="hero">
+    <h1>Steven Timothy</h1>
+    <p class="role">Lead Software Engineer <span class="mono accent">// systems &amp; architecture</span></p>
+    {latest && (
+      <a class="latest" href={`/writing/${latest.id}`}>
+        <span class="label mono">~ latest</span>
+        <span class="latest-title">{latest.data.title} →</span>
+      </a>
+    )}
+    <div class="chips">
+      <span class="chip">software architecture</span>
+      <span class="chip">distributed systems</span>
+      <span class="chip">platform</span>
+    </div>
+  </section>
+
+  {featured.length > 0 && (
+    <section class="featured">
+      <h2>Featured work</h2>
+      <div class="grid">
+        {featured.map((p) => (
+          <ProjectCard href={`/projects/${p.id}`} title={p.data.title} summary={p.data.summary} tags={p.data.tags} />
+        ))}
+      </div>
+    </section>
+  )}
 </BaseLayout>
+
+<style>
+  .hero { padding: 2rem 0 1rem; }
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); margin: 0; }
+  .role { font-size: 1.15rem; margin: 0.75rem 0 1.75rem; }
+  .latest { display: block; border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 1rem; margin-bottom: 1.5rem; color: var(--text); }
+  .latest:hover { text-decoration: none; }
+  .latest:hover .latest-title { color: var(--accent); }
+  .label { display: block; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .latest-title { font-family: var(--font-display); font-size: 1.25rem; }
+  .featured { margin-top: 3rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1.2rem; }
+</style>
