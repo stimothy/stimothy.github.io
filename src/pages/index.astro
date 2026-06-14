@@ -5,39 +5,53 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import portrait from '../assets/portrait.jpg';
 
-const latest = (await getCollection('writing', ({ data }) => !data.draft))
+const latestPosts = (await getCollection('writing', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, 1)[0];
+  .slice(0, 2);
 
 const featured = (await getCollection('projects', ({ data }) => !data.draft && data.featured))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
   .slice(0, 2);
+
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
-<BaseLayout title="Steven Timothy — Lead Software Engineer">
+<BaseLayout title="Steven Timothy — Lead Software Engineer" bleed>
   <section class="hero">
-    <div class="hero-head">
-      <Image src={portrait} alt="Steven Timothy" width={360} height={540} loading="eager" class="avatar" />
-      <div class="hero-intro">
-        <h1>Steven Timothy</h1>
-        <p class="role">Lead Software Engineer <span class="mono accent">// systems &amp; architecture</span></p>
+    <div class="container-wide hero-grid">
+      <div class="hero-text">
+        <h1>Lead Software Engineer<br />&amp; Future Architect</h1>
+        <p class="role">Building reliable systems — and writing about how they're designed. <span class="mono accent">// systems &amp; architecture</span></p>
+        <div class="cta">
+          <a class="btn btn-primary" href="/projects">View my work</a>
+          <a class="btn btn-ghost" href="mailto:steven.timothy265@gmail.com">Get in touch</a>
+        </div>
+        <div class="chips">
+          <span class="chip">software architecture</span>
+          <span class="chip">distributed systems</span>
+          <span class="chip">platform</span>
+        </div>
       </div>
-    </div>
-    {latest && (
-      <a class="latest" href={`/writing/${latest.id}`}>
-        <span class="label mono">~ latest</span>
-        <span class="latest-title">{latest.data.title} →</span>
-      </a>
-    )}
-    <div class="chips">
-      <span class="chip">software architecture</span>
-      <span class="chip">distributed systems</span>
-      <span class="chip">platform</span>
+      <div class="portrait-wrap">
+        <div class="codebg" aria-hidden="true"><pre>export class Service &#123;
+  async handle(req) &#123;
+    const ctx = build(req);
+    return pipeline(ctx);
+  &#125;
+&#125;
+function pipeline(ctx) &#123;
+  for (const stage of stages)
+    ctx = stage(ctx);
+&#125;</pre></div>
+        <Image src={portrait} alt="Steven Timothy" width={360} height={450} loading="eager" class="portrait-img" />
+      </div>
     </div>
   </section>
 
   {featured.length > 0 && (
-    <section class="featured">
+    <section class="container-wide block">
+      <span class="section-rule"></span>
       <h2>Featured work</h2>
+      <p class="lead muted">A few projects that show how I think about systems.</p>
       <div class="grid">
         {featured.map((p) => (
           <ProjectCard href={`/projects/${p.id}`} title={p.data.title} summary={p.data.summary} tags={p.data.tags} />
@@ -45,38 +59,92 @@ const featured = (await getCollection('projects', ({ data }) => !data.draft && d
       </div>
     </section>
   )}
+
+  <section class="container-wide block">
+    <div class="split">
+      <div>
+        <span class="section-rule"></span>
+        <h2>About</h2>
+        <p class="muted">Lead software engineer focused on software architecture — how systems are shaped, why they're built the way they are, and how to keep them healthy as they grow.</p>
+        <p><a class="accent" href="/about">More about me →</a></p>
+      </div>
+      {latestPosts.length > 0 && (
+        <div>
+          <span class="section-rule"></span>
+          <h2>Latest writing</h2>
+          {latestPosts.map((p) => (
+            <a class="post-row" href={`/writing/${p.id}`}>
+              <span class="date muted mono">{fmt(p.data.date)}</span>
+              <span class="post-title">{p.data.title}</span>
+            </a>
+          ))}
+          <p style="margin-top:1rem"><a class="accent" href="/writing">All writing →</a></p>
+        </div>
+      )}
+    </div>
+  </section>
 </BaseLayout>
 
 <style>
-  .hero { padding: 2rem 0 1rem; }
-  /* Default (mobile / mid): photo stacked above the name, both left-aligned with the body */
-  .hero-head { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
-  .avatar {
-    width: 96px;
-    height: 96px;
-    border-radius: 50%;
+  .hero {
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(900px 380px at 78% 20%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.85fr; gap: 3rem; align-items: center; padding: 4rem 0 3.5rem; }
+  .hero-text h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 0 0 1rem; }
+  .role { font-size: 1.15rem; color: var(--muted); margin: 0 0 2rem; }
+  .cta { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+  .chips { margin-top: 1.6rem; }
+
+  .portrait-wrap { position: relative; }
+  .codebg {
+    position: absolute;
+    inset: -14px;
+    border-radius: 18px;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .codebg pre {
+    margin: 0;
+    padding: 1rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    line-height: 1.5;
+    color: var(--muted);
+    opacity: 0.5;
+  }
+  .portrait-img {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
     object-position: 50% 14%;
+    border-radius: 14px;
     border: 2px solid var(--accent);
-    flex: 0 0 auto;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+    margin-left: auto;
   }
-  .hero h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); margin: 0; }
-  .role { font-size: 1.15rem; margin: 0.6rem 0 1.75rem; }
-  /* Wide screens: outdent the photo into the left gutter so the name lines up with the body */
-  @media (min-width: 1080px) {
-    .hero-head {
-      flex-direction: row;
-      align-items: center;
-      gap: 1.75rem;
-      margin-left: calc(-120px - 1.75rem);
-    }
-    .avatar { width: 120px; height: 120px; }
+
+  .block { padding: 3.5rem 0; }
+  .block h2 { font-size: 1.9rem; margin: 0 0 0.35rem; }
+  .lead { margin: 0 0 1.8rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.4rem; }
+
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+  .post-row { display: flex; flex-direction: column; padding: 0.8rem 0; border-bottom: 1px solid var(--border); color: var(--text); }
+  .post-row:hover { text-decoration: none; }
+  .post-row:hover .post-title { color: var(--accent); }
+  .post-row .date { font-size: 0.75rem; }
+  .post-title { font-family: var(--font-display); font-size: 1.1rem; }
+
+  @media (max-width: 860px) {
+    .hero-grid, .split { grid-template-columns: 1fr; }
+    .portrait-wrap { order: -1; }
+    .codebg { inset: -8px; }
+    .portrait-img { margin: 0 auto; }
   }
-  .latest { display: block; border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 1rem; margin-bottom: 1.5rem; color: var(--text); }
-  .latest:hover { text-decoration: none; }
-  .latest:hover .latest-title { color: var(--accent); }
-  .label { display: block; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-  .latest-title { font-family: var(--font-display); font-size: 1.25rem; }
-  .featured { margin-top: 3rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.2rem; margin-top: 1.2rem; }
 </style>
