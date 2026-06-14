@@ -4,26 +4,42 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static personal/portfolio website for Steven Timothy. There is **no build system, no package manager, and no tests** — the files served are the files in the repo. To preview, open `index.html` directly in a browser or run a static server (e.g. `python3 -m http.server`).
+Steven Timothy's personal portfolio — an **Astro** static site (Home, Writing, Projects, About) deployed to **GitHub Pages** at the custom domain `www.steventimothy.com`. It serves two audiences at once: a hiring manager evaluating a lead/architect, and a casual visitor reading the writing. Positioning is oriented around software architecture.
 
-## Deployment
+## Workflow rule
 
-Deployed via **GitHub Pages** from the `master` branch root. The `CNAME` file binds the site to the custom domain `www.steventimothy.com`, so any commit to `master` publishes live. There is no staging environment.
+**Never commit directly to `master`.** Always branch off `master` first. `master` is the live deploy branch (see CI below), so commits to it publish immediately. Integrate via PR/merge.
+
+## Commands
+
+- `npm run dev` — local dev server with HMR
+- `npm run build` — production build to `dist/`
+- `npm run preview` — serve the built `dist/` locally (closest to production)
+- `npm test` — Vitest unit tests (`vitest run --passWithNoTests`)
+- `npx astro check` — TypeScript + Astro type checking
+
+Note on `astro check`: expect **0 errors / 0 warnings** but a number of *hints* reading `'z' is deprecated`. These come from the Zod re-export bundled with Astro 6 and are a framework-level JSDoc artifact, not actionable — don't chase them.
 
 ## Architecture
 
-- `index.html` — home page (profile header + welcome blurb).
-- `about/index.html` — about page. Lives in its own directory and uses **its own duplicated copy** of the dark theme at `about/css/dark_theme.css`. Edits to the root `css/` files do not propagate to `about/`; keep them in sync manually.
-- `css/dark_theme.css` and `css/light_theme.css` — two complete, parallel stylesheets using identical element IDs/classes (`Profile_Container`, `Logos`, `Navigation_Bar`, `Content_Container`). Any structural/layout change must be made in both to avoid theme drift.
+- **Content as data.** Writing posts and projects are Markdown files under `src/content/{writing,projects}/`, validated by Zod schemas in `src/content.config.ts`. Publishing = adding a `.md` file with the right frontmatter; no code changes. Pages query content with `getCollection(...)` and render bodies via `render(entry)` from `astro:content`.
+  - `writing` frontmatter: `title`, `date`, `summary`, `tags[]`, `draft`.
+  - `projects` frontmatter: the above plus `featured`, optional `repo` (URL), optional `link` (URL).
+  - **Drafts** (`draft: true`) are filtered out at build time everywhere. The home page surfaces the latest non-draft post and up to two `featured` projects; both sections self-hide when empty.
+  - Import `z` from `astro:schema` (not `astro:content`) in `content.config.ts`.
 
-## Theming
+- **Theming is the one piece of real logic.** Light + dark in a single warm palette ("espresso + amber"), driven entirely by CSS custom properties in `src/styles/global.css`, keyed off a `data-theme` attribute on `<html>` (light is `:root`, dark via `[data-theme='dark']`).
+  - `src/lib/theme.ts` holds the only unit-tested logic: `resolveTheme(stored, prefersDark)` decides the active theme. It is the single source of truth and is reused by both the pre-paint script and the toggle. Tests in `src/lib/theme.test.ts`.
+  - `BaseLayout.astro` runs an **inline (`is:inline`) script in `<head>`** that sets `data-theme` before first paint to avoid a flash. `ThemeToggle.astro` flips the attribute and persists the choice to `localStorage`. First visit follows the OS `prefers-color-scheme`.
 
-Two themes exist. `js/theme_changer.js` is the intended mechanism: it picks `light_theme` between 10am–7pm and `dark_theme` otherwise, injecting the `<link>` via `document.write`. **It is currently commented out in `index.html`**, which instead hardcodes `dark_theme.css`. Re-enabling the script requires uncommenting its `<script>` tag and removing the hardcoded stylesheet `<link>`.
+- **Layout composition.** `BaseLayout.astro` (head, `Nav`, `Footer`, slot) wraps every page; `PostLayout.astro` wraps `BaseLayout` for both writing posts and project detail pages (shared article styling).
 
-## Asset conventions
+## Deployment
 
-`source/images/` contains two naming variants of the same photos:
-- Capitalized (e.g. `Prof_Pic.jpg`, `Prof_Back_D.jpg`) — full-resolution originals, linked for click-through.
-- lowercase (e.g. `profile_pic.jpg`) — display/thumbnail versions used in `<img src>`.
+`.github/workflows/deploy.yml` builds with `withastro/action` and deploys to GitHub Pages via `actions/deploy-pages` on every push to `master`. The custom domain ships via `public/CNAME` (copied into `dist/` at build). **One-time manual step:** the repo's Settings → Pages → Source must be set to "GitHub Actions".
 
-Theme-specific assets use `_d` (dark) / `_l` (light) suffixes (e.g. `github_d.png`, `linkedin_l.png`). When the active theme changes, the referenced sprite suffix must change to match.
+## Conventions
+
+- Global utility classes from `global.css`: `container`, `muted`, `mono`, `accent`, `chip`. Use design tokens (`var(--bg)`, `var(--text)`, `var(--accent)`, `var(--border)`, etc.) rather than hardcoded colors so both themes stay correct.
+- Keep components small and single-responsibility (`src/components/`).
+- The seed prose in the starter posts and About page is placeholder, marked for the owner to rewrite — don't invent biographical or employment claims.
