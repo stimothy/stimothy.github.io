@@ -27,5 +27,5 @@ pnpm-debug.log*
 .superpowers/
 .serena/
 
-drafts/*
-!drafts/.gitkeep
+scratchpad/*
+!scratchpad/.gitkeep
