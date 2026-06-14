@@ -1,7 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import portrait from '../assets/portrait.jpg';
 
 const latest = (await getCollection('writing', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
@@ -13,8 +15,13 @@ const featured = (await getCollection('projects', ({ data }) => !data.draft && d
 ---
 <BaseLayout title="Steven Timothy — Lead Software Engineer">
   <section class="hero">
-    <h1>Steven Timothy</h1>
-    <p class="role">Lead Software Engineer <span class="mono accent">// systems &amp; architecture</span></p>
+    <div class="hero-head">
+      <Image src={portrait} alt="Steven Timothy" width={360} height={540} loading="eager" class="avatar" />
+      <div class="hero-intro">
+        <h1>Steven Timothy</h1>
+        <p class="role">Lead Software Engineer <span class="mono accent">// systems &amp; architecture</span></p>
+      </div>
+    </div>
     {latest && (
       <a class="latest" href={`/writing/${latest.id}`}>
         <span class="label mono">~ latest</span>
@@ -42,8 +49,23 @@ const featured = (await getCollection('projects', ({ data }) => !data.draft && d
 
 <style>
   .hero { padding: 2rem 0 1rem; }
+  .hero-head { display: flex; align-items: center; gap: 1.5rem; }
+  .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 14%;
+    border: 2px solid var(--accent);
+    flex: 0 0 auto;
+  }
   .hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); margin: 0; }
   .role { font-size: 1.15rem; margin: 0.75rem 0 1.75rem; }
+  @media (max-width: 480px) {
+    .hero-head { gap: 1rem; }
+    .avatar { width: 84px; height: 84px; }
+    .role { margin-bottom: 1.25rem; }
+  }
   .latest { display: block; border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 1rem; margin-bottom: 1.5rem; color: var(--text); }
   .latest:hover { text-decoration: none; }
   .latest:hover .latest-title { color: var(--accent); }
