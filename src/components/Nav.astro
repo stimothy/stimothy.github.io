@@ -24,7 +24,14 @@ const links = [
 </nav>
 
 <style>
-  .site-nav { border-bottom: 1px solid var(--border); padding: 1rem 0; }
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+    background: var(--bg);
+  }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; }
   .brand { display: inline-flex; align-items: center; }
   .logo { display: block; }
