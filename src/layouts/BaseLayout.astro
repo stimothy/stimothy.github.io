@@ -6,8 +6,15 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  wide?: boolean;
+  bleed?: boolean;
 }
-const { title, description = 'Lead software engineer writing about how systems are built.' } = Astro.props;
+const {
+  title,
+  description = 'Lead software engineer writing about how systems are built.',
+  wide = false,
+  bleed = false,
+} = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +39,12 @@ const { title, description = 'Lead software engineer writing about how systems a
   </head>
   <body>
     <Nav />
-    <main>
-      <div class="container">
+    <main class:list={[{ bleed }]}>
+      {bleed ? (
         <slot />
-      </div>
+      ) : (
+        <div class={wide ? 'container-wide' : 'container'}><slot /></div>
+      )}
     </main>
     <Footer />
   </body>
