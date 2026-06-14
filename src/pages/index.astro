@@ -91,7 +91,7 @@ function pipeline(ctx) &#123;
     background: radial-gradient(900px 380px at 78% 20%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
     overflow: hidden; /* contain the .codebg negative-inset bleed; never reaches the hero edges */
   }
-  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.85fr; gap: 3rem; align-items: center; padding: 4rem 0 3.5rem; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.85fr; gap: 3rem; align-items: center; padding-block: 4rem 3.5rem; }
   .hero-text h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 0 0 1rem; }
   .role { font-size: 1.15rem; color: var(--muted); margin: 0 0 2rem; }
   .cta { display: flex; gap: 0.9rem; flex-wrap: wrap; }
@@ -130,7 +130,7 @@ function pipeline(ctx) &#123;
     margin-left: auto;
   }
 
-  .block { padding: 3.5rem 0; }
+  .block { padding-block: 3.5rem; }
   .block h2 { font-size: 1.9rem; margin: 0 0 0.35rem; }
   .lead { margin: 0 0 1.8rem; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.4rem; }
