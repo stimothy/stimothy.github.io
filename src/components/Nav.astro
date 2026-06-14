@@ -8,7 +8,7 @@ const links = [
 ];
 ---
 <nav class="site-nav">
-  <div class="container nav-inner">
+  <div class="container-wide nav-inner">
     <a class="brand" href="/" aria-label="Steven Timothy — home">
       <svg class="logo" width="34" height="34" viewBox="0 0 84 84" aria-hidden="true">
         <rect class="logo-tile" x="1" y="1" width="82" height="82" rx="17" />
@@ -30,7 +30,10 @@ const links = [
     z-index: 100;
     border-bottom: 1px solid var(--border);
     padding: 1rem 0;
-    background: var(--bg);
+    background: var(--bg); /* fallback for browsers without color-mix */
+    background: color-mix(in srgb, var(--bg) 85%, transparent);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
   }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; }
   .brand { display: inline-flex; align-items: center; }

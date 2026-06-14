@@ -6,14 +6,21 @@ import PostCard from '../../components/PostCard.astro';
 const posts = (await getCollection('writing', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<BaseLayout title="Writing — Steven Timothy">
+<BaseLayout title="Writing — Steven Timothy" wide>
+  <span class="section-rule"></span>
   <h1>Writing</h1>
   <p class="muted">Notes on software architecture, engineering standards, and ideas worth exploring.</p>
   {posts.length === 0 ? (
     <p class="muted">First posts are on the way.</p>
   ) : (
-    posts.map((p) => (
-      <PostCard href={`/writing/${p.id}`} title={p.data.title} date={p.data.date} summary={p.data.summary} tags={p.data.tags} />
-    ))
+    <div class="grid">
+      {posts.map((p) => (
+        <PostCard href={`/writing/${p.id}`} title={p.data.title} date={p.data.date} summary={p.data.summary} tags={p.data.tags} />
+      ))}
+    </div>
   )}
 </BaseLayout>
+
+<style>
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.4rem; margin-top: 1.5rem; }
+</style>

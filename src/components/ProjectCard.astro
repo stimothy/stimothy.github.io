@@ -7,23 +7,28 @@ interface Props {
 }
 const { href, title, summary, tags } = Astro.props;
 ---
-<a class="project-card" href={href}>
-  <h3>{title}</h3>
-  <p>{summary}</p>
-  <div>{tags.map((t) => <span class="chip">{t}</span>)}</div>
+<a class="card project-card" href={href}>
+  <div class="thumb" aria-hidden="true"></div>
+  <div class="card-body">
+    <h3>{title}</h3>
+    <p class="summary">{summary}</p>
+    <div class="tags">{tags.map((t) => <span class="chip">{t}</span>)}</div>
+    <span class="more accent" aria-hidden="true">Read more &rarr;</span>
+  </div>
 </a>
 
 <style>
-  .project-card {
-    display: block;
-    padding: 1.4rem;
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    background: var(--surface);
-    color: var(--text);
-    transition: transform 0.12s ease, border-color 0.12s ease;
+  .project-card { color: var(--text); }
+  .thumb { height: 140px; position: relative; background: linear-gradient(135deg, var(--accent-soft), var(--code-bg)); }
+  .thumb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(300px 120px at 30% 10%, color-mix(in srgb, var(--accent) 18%, transparent), transparent);
   }
-  .project-card:hover { transform: translateY(-2px); border-color: var(--accent); text-decoration: none; }
-  .project-card h3 { margin: 0 0 0.4rem; }
-  .project-card p { margin: 0 0 0.6rem; color: var(--muted); }
+  .card-body { padding: 1.1rem 1.2rem 1.3rem; }
+  .card-body h3 { margin: 0 0 0.4rem; font-size: 1.15rem; }
+  .summary { margin: 0 0 0.9rem; color: var(--muted); font-size: 0.92rem; }
+  .tags { margin-bottom: 0.8rem; }
+  .more { font-size: 0.9rem; font-weight: 600; }
 </style>
