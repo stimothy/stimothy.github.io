@@ -10,7 +10,7 @@ interface Props {
 const { href, title, summary, tags, image, imageAlt } = Astro.props;
 ---
 <a class="card project-card" href={href}>
-  <div class={image ? 'thumb has-img' : 'thumb'}>
+  <div class={image ? 'thumb has-img' : 'thumb'} aria-hidden={image ? undefined : 'true'}>
     {image && <img class="thumb-img" src={image} alt={imageAlt ?? ''} loading="lazy" />}
   </div>
   <div class="card-body">
