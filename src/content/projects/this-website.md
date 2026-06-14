@@ -12,10 +12,12 @@ imageAlt: Astro logo
 
 ## The problem
 
-I didn't have a place that showed the work I've done — or where I stand on what makes
-code clean and well-architected. The times I tried, hand-building a polished portfolio
-from scratch cost more time than it was worth, and the moment I wanted to add something
-new, getting it to look right was enough friction that the site just fell out of date.
+I wanted a single home for the work I've done — and for where I stand on what makes
+code clean and well-architected. The real challenge isn't building a portfolio once;
+it's keeping one current. A site is only as useful as its last update, and a hand-built
+one tends to drift out of date the moment publishing something new means reworking the
+layout by hand. So the goal was to engineer for exactly that: a portfolio where staying
+current takes almost no effort.
 
 ## What I built
 
