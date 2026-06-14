@@ -89,6 +89,7 @@ function pipeline(ctx) &#123;
   .hero {
     border-bottom: 1px solid var(--border);
     background: radial-gradient(900px 380px at 78% 20%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%);
+    overflow: hidden; /* contain the .codebg negative-inset bleed; never reaches the hero edges */
   }
   .hero-grid { display: grid; grid-template-columns: 1.05fr 0.85fr; gap: 3rem; align-items: center; padding: 4rem 0 3.5rem; }
   .hero-text h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: 0 0 1rem; }

@@ -15,7 +15,7 @@ const dateStr = date.toLocaleDateString('en-US', { year: 'numeric', month: 'shor
     <h3>{title}</h3>
     <p class="summary">{summary}</p>
     <div class="tags">{tags.map((t) => <span class="chip">{t}</span>)}</div>
-    <span class="more accent">Read more →</span>
+    <span class="more accent" aria-hidden="true">Read more →</span>
   </div>
 </a>
 
