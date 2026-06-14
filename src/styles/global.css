@@ -83,3 +83,37 @@ pre {
   font-size: 0.9rem;
 }
 code { font-family: var(--font-mono); font-size: 0.9em; }
+
+/* ---- Layout primitives (redesign) ---- */
+.container-wide { max-width: 1120px; margin: 0 auto; padding: 0 var(--space); }
+
+main.bleed { padding: 0; }
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.btn:hover { text-decoration: none; }
+.btn-primary { background: var(--accent); color: var(--bg); }
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
+.btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+.card {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  color: var(--text);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.card:hover { transform: translateY(-3px); border-color: var(--accent); text-decoration: none; }
+
+.section-rule { display: inline-block; width: 46px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.2rem; }
