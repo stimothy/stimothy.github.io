@@ -1,0 +1,27 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+const links = [
+  { href: '/', label: 'home' },
+  { href: '/writing', label: 'writing' },
+  { href: '/projects', label: 'projects' },
+  { href: '/about', label: 'about' },
+];
+---
+<nav class="site-nav">
+  <div class="container nav-inner">
+    <a class="brand" href="/">ST</a>
+    <div class="nav-links">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <ThemeToggle />
+    </div>
+  </div>
+</nav>
+
+<style>
+  .site-nav { border-bottom: 1px solid var(--border); padding: 1rem 0; }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: var(--text); }
+  .nav-links { display: flex; align-items: center; gap: 1.1rem; }
+  .nav-links a { color: var(--muted); font-size: 0.95rem; }
+  .nav-links a:hover { color: var(--accent); text-decoration: none; }
+</style>
