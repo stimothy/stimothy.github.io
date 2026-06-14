@@ -1,0 +1,39 @@
+---
+---
+<button id="theme-toggle" class="mono" aria-label="Toggle color theme" title="Toggle theme">
+  <span data-theme-icon>◐</span>
+</button>
+
+<style>
+  #theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    padding: 0.3rem 0.55rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+    line-height: 1;
+  }
+  #theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+</style>
+
+<script>
+  import { resolveTheme } from '../lib/theme';
+
+  function current(): 'light' | 'dark' {
+    const attr = document.documentElement.dataset.theme;
+    return attr === 'light' ? 'light' : 'dark';
+  }
+
+  const btn = document.getElementById('theme-toggle');
+  btn?.addEventListener('click', () => {
+    const next = current() === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+  });
+
+  // Reconcile in case markup loaded before the inline head script (defensive).
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.dataset.theme = resolveTheme(localStorage.getItem('theme'), prefersDark);
+</script>
