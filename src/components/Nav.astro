@@ -9,7 +9,13 @@ const links = [
 ---
 <nav class="site-nav">
   <div class="container nav-inner">
-    <a class="brand" href="/">ST</a>
+    <a class="brand" href="/" aria-label="Steven Timothy — home">
+      <svg class="logo" width="34" height="34" viewBox="0 0 84 84" aria-hidden="true">
+        <rect class="logo-tile" x="1" y="1" width="82" height="82" rx="17" />
+        <text class="logo-t" x="52" y="50" font-size="40" text-anchor="middle">T</text>
+        <text class="logo-s" x="36" y="58" font-size="56" text-anchor="middle">S</text>
+      </svg>
+    </a>
     <div class="nav-links">
       {links.map((l) => <a href={l.href}>{l.label}</a>)}
       <ThemeToggle />
@@ -20,7 +26,13 @@ const links = [
 <style>
   .site-nav { border-bottom: 1px solid var(--border); padding: 1rem 0; }
   .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-  .brand { font-family: var(--font-display); font-weight: 700; font-size: 1.2rem; color: var(--text); }
+  .brand { display: inline-flex; align-items: center; }
+  .logo { display: block; }
+  .logo-tile { fill: var(--surface); stroke: var(--border); stroke-width: 1; }
+  .logo-t { fill: var(--accent); }
+  .logo-s { fill: var(--text); }
+  .logo text { font-family: var(--font-display); font-weight: 700; }
+  .brand:hover .logo-tile { stroke: var(--accent); }
   .nav-links { display: flex; align-items: center; gap: 1.1rem; }
   .nav-links a { color: var(--muted); font-size: 0.95rem; }
   .nav-links a:hover { color: var(--accent); text-decoration: none; }
