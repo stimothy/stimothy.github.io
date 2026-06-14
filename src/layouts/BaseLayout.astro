@@ -6,7 +6,9 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description?: string;
+  /** Use the wide (~1120px) container. Ignored when `bleed` is true. */
   wide?: boolean;
+  /** Render the slot full-bleed (no container). Takes precedence over `wide`. */
   bleed?: boolean;
 }
 const {
@@ -39,7 +41,7 @@ const {
   </head>
   <body>
     <Nav />
-    <main class:list={[{ bleed }]}>
+    <main class:list={{ bleed }}>
       {bleed ? (
         <slot />
       ) : (
