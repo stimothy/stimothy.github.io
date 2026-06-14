@@ -34,16 +34,16 @@ Note on `astro check`: expect **0 errors / 0 warnings** but a number of *hints* 
 
 - **Layout composition.** `BaseLayout.astro` (head, `Nav`, `Footer`, slot) wraps every page; `PostLayout.astro` wraps `BaseLayout` for both writing posts and project detail pages (shared article styling).
 
-## Content drafts workflow (`drafts/`)
+## Content drafts workflow (`scratchpad/`)
 
-The `drafts/` folder is Steven's scratchpad — rough, unpolished, thrown-together notes he writes just to get his thoughts out. He hands these to Claude as **source material** for real site content (About copy, blog posts, project write-ups). Treat a draft as raw input, not finished prose: pull out the facts and intent, then write them up properly in Steven's voice and the site's tone. Don't invent facts that aren't in the draft (existing real facts already on the site are fine to retain).
+The `scratchpad/` folder is Steven's scratchpad — rough, unpolished, thrown-together notes he writes just to get his thoughts out. He hands these to Claude as **source material** for real site content (About copy, blog posts, project write-ups). Treat a scratchpad note as raw input, not finished prose: pull out the facts and intent, then write them up properly in Steven's voice and the site's tone. Don't invent facts that aren't in the scratchpad notes (existing real facts already on the site are fine to retain).
 
-**Required workflow for every draft — do not skip a step:**
-1. Use the draft to create or update the real page/content.
-2. **Stop and let Steven review the generated page. Do NOT delete the draft yet.**
-3. Only after Steven approves, delete the source draft file.
+**Required workflow for every scratchpad note — do not skip a step:**
+1. Use the scratch notes to create or update the real page/content.
+2. **Stop and let Steven review the generated page. Do NOT delete the scratchpad note yet.**
+3. Only after Steven approves, delete the source scratchpad note/s file.
 
-Never delete a draft before Steven has reviewed the content it produced.
+Never delete a scratchpad note before Steven has reviewed the content it produced.
 
 ## Deployment
 
