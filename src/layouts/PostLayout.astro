@@ -11,6 +11,7 @@ const dateStr = date.toLocaleDateString('en-US', { year: 'numeric', month: 'shor
 ---
 <BaseLayout title={title} description={summary}>
   <article class="prose">
+    <span class="section-rule"></span>
     <h1>{title}</h1>
     <p class="muted mono date">{dateStr}</p>
     <div class="tags">{tags.map((t) => <span class="chip">{t}</span>)}</div>
