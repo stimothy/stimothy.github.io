@@ -26,3 +26,6 @@ pnpm-debug.log*
 # superpowers and serena (local dev tooling)
 .superpowers/
 .serena/
+
+drafts/*
+!drafts/.gitkeep
