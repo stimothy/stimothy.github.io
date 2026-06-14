@@ -29,8 +29,8 @@ Note on `astro check`: expect **0 errors / 0 warnings** but a number of *hints* 
   - Import `z` from `astro:schema` (not `astro:content`) in `content.config.ts`.
 
 - **Theming is the one piece of real logic.** Light + dark in a single warm palette ("espresso + amber"), driven entirely by CSS custom properties in `src/styles/global.css`, keyed off a `data-theme` attribute on `<html>` (light is `:root`, dark via `[data-theme='dark']`).
-  - `src/lib/theme.ts` holds the only unit-tested logic: `resolveTheme(stored, prefersDark)` decides the active theme. It is the single source of truth and is reused by both the pre-paint script and the toggle. Tests in `src/lib/theme.test.ts`.
-  - `BaseLayout.astro` runs an **inline (`is:inline`) script in `<head>`** that sets `data-theme` before first paint to avoid a flash. `ThemeToggle.astro` flips the attribute and persists the choice to `localStorage`. First visit follows the OS `prefers-color-scheme`.
+  - `src/lib/theme.ts` holds the only unit-tested logic: `resolveTheme(stored, prefersDark)` decides the active theme. The `ThemeToggle.astro` client script imports it. Tests in `src/lib/theme.test.ts`.
+  - `BaseLayout.astro` runs an **inline (`is:inline`) script in `<head>`** that sets `data-theme` before first paint to avoid a flash. Because `is:inline` scripts are not bundled and cannot import, this script re-implements the same resolution logic inline — keep it in sync with `resolveTheme` if that logic changes. `ThemeToggle.astro` flips the attribute and persists the choice to `localStorage`. First visit follows the OS `prefers-color-scheme`.
 
 - **Layout composition.** `BaseLayout.astro` (head, `Nav`, `Footer`, slot) wraps every page; `PostLayout.astro` wraps `BaseLayout` for both writing posts and project detail pages (shared article styling).
 
