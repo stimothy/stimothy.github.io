@@ -49,22 +49,28 @@ const featured = (await getCollection('projects', ({ data }) => !data.draft && d
 
 <style>
   .hero { padding: 2rem 0 1rem; }
-  .hero-head { display: flex; align-items: center; gap: 1.5rem; }
+  /* Default (mobile / mid): photo stacked above the name, both left-aligned with the body */
+  .hero-head { display: flex; flex-direction: column; align-items: flex-start; gap: 1.1rem; }
   .avatar {
-    width: 110px;
-    height: 110px;
+    width: 96px;
+    height: 96px;
     border-radius: 50%;
     object-fit: cover;
     object-position: 50% 14%;
     border: 2px solid var(--accent);
     flex: 0 0 auto;
   }
-  .hero h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); margin: 0; }
-  .role { font-size: 1.15rem; margin: 0.75rem 0 1.75rem; }
-  @media (max-width: 480px) {
-    .hero-head { gap: 1rem; }
-    .avatar { width: 84px; height: 84px; }
-    .role { margin-bottom: 1.25rem; }
+  .hero h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); margin: 0; }
+  .role { font-size: 1.15rem; margin: 0.6rem 0 1.75rem; }
+  /* Wide screens: outdent the photo into the left gutter so the name lines up with the body */
+  @media (min-width: 1080px) {
+    .hero-head {
+      flex-direction: row;
+      align-items: center;
+      gap: 1.75rem;
+      margin-left: calc(-120px - 1.75rem);
+    }
+    .avatar { width: 120px; height: 120px; }
   }
   .latest { display: block; border-left: 3px solid var(--accent); padding: 0.5rem 0 0.5rem 1rem; margin-bottom: 1.5rem; color: var(--text); }
   .latest:hover { text-decoration: none; }
