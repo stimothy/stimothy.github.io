@@ -156,6 +156,7 @@ folder of your own and try a few of these:
 - "Take my rough notes in `notes.txt` and turn them into a clean, organized document."
 - "Rename these files so they're sorted by date, and group them into subfolders by topic."
 - "Walk me through what this project does and how the pieces fit together."
+- "Figure out the best way to turn these files into a single PDF, then go ahead and do it." — the real payoff: it researches *how*, then actually does it.
 
 Whether your folder holds code, documents, photos, or a half-finished idea, the move
 is the same: talk to it like you'd talk to a capable teammate — plain language is
