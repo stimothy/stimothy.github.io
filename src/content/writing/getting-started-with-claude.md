@@ -149,15 +149,18 @@ no terminal.
 
 ## A few prompts to try
 
-The fastest way to feel the difference is to ask for something real. From inside a
-project, try:
+The fastest way to feel the difference is to ask for something real. Point it at a
+folder of your own and try a few of these:
 
-- "Summarize what this project does."
-- "Add a README that explains how to run this."
-- "Find where logging is handled and explain it to me."
+- "Summarize what's in this folder."
+- "Take my rough notes in `notes.txt` and turn them into a clean, organized document."
+- "Rename these files so they're sorted by date, and group them into subfolders by topic."
+- "Walk me through what this project does and how the pieces fit together."
 
-Talk to it like you'd talk to a capable teammate — plain language is enough. Watch
-what it reads and changes, and you'll quickly get a sense of what it's good at.
+Whether your folder holds code, documents, photos, or a half-finished idea, the move
+is the same: talk to it like you'd talk to a capable teammate — plain language is
+enough. Watch what it reads and changes, and you'll quickly get a sense of what it's
+good at.
 
 ## Go deeper
 
