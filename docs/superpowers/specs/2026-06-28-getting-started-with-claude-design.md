@@ -38,6 +38,8 @@ Claude experience and minimal tooling knowledge; explain agentic AI from scratch
   narrative instead.
 - Embedded video player — plain link, consistent with existing posts.
 - Deep explanation of how agentic models work internally.
+- Deep comparison of competing agentic tools — only a brief side note that they
+  exist.
 
 ## File & frontmatter
 
@@ -59,6 +61,8 @@ Claude experience and minimal tooling knowledge; explain agentic AI from scratch
 2. **Chat vs. agentic AI** — classic LLM chat *talks back*; agentic AI *takes
    action* (reads/writes files, runs commands, works across multiple steps inside
    your real project). Short analogy plus a concrete contrast. No internals.
+   Callout: Claude is the focus here, but it isn't the only agentic AI — others
+   exist (e.g. OpenAI's Codex, Google's Gemini CLI); the concepts transfer.
 3. **Sign up** — create an account at claude.ai; chat is free. Callout: Claude Code
    (the agentic tool) needs a paid plan — Pro/Max/Team/Enterprise; the free tier is
    chat-only.
